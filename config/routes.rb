@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   
+  resources :categories, except: [:destroy] #this can be optional, taking it out will let people destroy categories
+  
   resources :articles
   resources :users
   
