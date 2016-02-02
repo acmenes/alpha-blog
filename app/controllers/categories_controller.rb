@@ -20,7 +20,9 @@ class CategoriesController < ApplicationController
     end #this part is actually making/saving the category
     
     def show
-        
+      @category = Category.find(params[:id]) 
+      @category_articles = @category.articles.paginate(page: params[:page], 
+      per_page: 5)
     end #get category tags to show?
     
     private
